@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez-nous</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="essaie.css">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 style="text-align: center; bottom: 20px;">SDBSN-SHIP</h1>
+    <section class="contact">
+        <div class="contact__container">
+            <!-- Partie Informations -->
+            <div class="contact__info">
+                <h2 class="contact__title">Contactez-nous</h2>
+                <p class="contact__description">
+                    Nous sommes là pour vous aider. N'hésitez pas à nous contacter pour toute question ou demande d'information.
+                </p>
+                <div class="contact__details">
+                    <div class="contact__item">
+                        <i class="contact__icon fas fa-map-marker-alt"></i>
+                        <span class="contact__text">123 Rue de l'Innovation, 75000 Paris</span>
+                    </div>
+                    <div class="contact__item">
+                        <i class="contact__icon fas fa-phone"></i>
+                        <span class="contact__text">+33 1 23 45 67 89</span>
+                    </div>
+                    <div class="contact__item">
+                        <i class="contact__icon fas fa-envelope"></i>
+                        <span class="contact__text">contact@example.com</span>
+                    </div>
+                    <div class="contact__item">
+                        <i class="contact__icon fas fa-clock"></i>
+                        <span class="contact__text">Lun-Ven: 9h-18h</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partie Formulaire -->
+            <div class="contact__form">
+                <form action="https://formspree.io/f/xqapevvv" method="POST">
+                    <div class="form__group">
+                        <label class="form__label" for="name">Nom complet</label>
+                        <input class="form__input" type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="email">Email</label>
+                        <input class="form__input" type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="subject">Sujet</label>
+                        <input class="form__input" type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="message">Message</label>
+                        <textarea class="form__textarea" id="message" name="message" required></textarea>
+                    </div>
+                    <button class="form__button" type="submit">
+                        <span>Envoyer le message</span>
+                    </button>
+                </form>
+                <div class="form__success" id="successMessage" style="display:none;">
+                    Votre message a été envoyé avec succès !
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript pour la validation et l'animation -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Ajouter la classe loading au bouton
+            const button = this.querySelector('.form__button');
+            button.classList.add('loading');
+            
+            // Simuler l'envoi du formulaire (à remplacer par votre logique d'envoi réelle)
+            setTimeout(() => {
+                button.classList.remove('loading');
+                document.getElementById('successMessage').style.display = 'block';
+                this.reset();
+                
+                // Cacher le message de succès après 3 secondes
+                setTimeout(() => {
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 3000);
+            }, 1500);
+        });
+    </script>
+     <footer class="footer">
+  <div class="footer-wrapper">
+    <div class="footer-brand">
+      <h2>SDBSN-SHIP</h2>
+      <p>Inspiration. Leadership. Transformation digitale pour la jeunesse africaine.</p>
+    </div>
+    <div class="footer-columns">
+      <div class="footer-column">
+        <h3>Navigation</h3>
+        <ul>
+          <li><a href="index.html">Accueils</a></li>
+          <li><a href="sdb.html">presentation</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Ressources</h3>
+        <ul>
+          <li><a href="apropos.html">À propos</a></li>
+          <li><a href="#Annexes">Annexes</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Suivez-nous</h3>
+        <div class="social-icons">
+           <a href="https://x.com/Sdbsntech" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/princeseydoubhk" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/seydou-bakhayokho-864070343" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/princeseydoubhk" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 <strong>SDBSN-SHIP</strong>. Tous droits réservés.</p>
+  </div>
+</footer>
+</body>
+</html>

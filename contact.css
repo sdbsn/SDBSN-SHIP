@@ -1,0 +1,220 @@
+/* ========== Contact Section Variables ========== */
+:root {
+  /* Colors */
+  --contact-primary: hwb(236 6% 56%);
+  --contact-secondary: #2c3e50;
+  --contact-success: #2ecc71;
+  --contact-error: #e74c3c;
+  --contact-bg: #f8f9fa;
+  --contact-text: #333333;
+  --contact-border: #e1e1e1;
+  
+  /* Effects */
+  --contact-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  --contact-transition: all 0.3s ease;
+  
+  /* Spacing */
+  --contact-spacing-sm: 1rem;
+  --contact-spacing-md: 2rem;
+  --contact-spacing-lg: 3rem;
+}
+
+/* ========== Contact Container ========== */
+.contact {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--contact-spacing-lg);
+  background: var(--contact-bg);
+}
+
+.contact__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--contact-spacing-lg);
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--contact-shadow);
+}
+
+/* ========== Contact Info ========== */
+.contact__info {
+  padding: var(--contact-spacing-lg);
+  background: linear-gradient(135deg, var(--contact-primary), var(--contact-secondary));
+  color: white;
+}
+
+.contact__title {
+  font-size: 2.5rem;
+  margin-bottom: var(--contact-spacing-md);
+  font-weight: 700;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.contact__description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: var(--contact-spacing-lg);
+  opacity: 0.9;
+}
+
+.contact__details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--contact-spacing-md);
+}
+
+.contact__item {
+  display: flex;
+  align-items: center;
+  gap: var(--contact-spacing-sm);
+}
+
+.contact__icon {
+  font-size: 1.5rem;
+  color: var(--contact-bg);
+}
+
+.contact__text {
+  font-size: 1.1rem;
+}
+
+/* ========== Contact Form ========== */
+.contact__form {
+  padding: var(--contact-spacing-lg);
+}
+
+.form__group {
+  margin-bottom: var(--contact-spacing-md);
+}
+
+.form__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--contact-text);
+  font-weight: 500;
+}
+
+.form__input,
+.form__textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--contact-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: var(--contact-transition);
+}
+
+.form__input:focus,
+.form__textarea:focus {
+  outline: none;
+  border-color: var(--contact-primary);
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.form__textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form__button {
+  background: var(--contact-primary);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--contact-transition);
+  width: 100%;
+}
+
+.form__button:hover {
+  background: var(--contact-secondary);
+  transform: translateY(-2px);
+}
+
+/* ========== Form Validation ========== */
+.form__input.error,
+.form__textarea.error {
+  border-color: var(--contact-error);
+}
+
+.form__error {
+  color: var(--contact-error);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.form__success {
+  background: var(--contact-success);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: var(--contact-spacing-md);
+  text-align: center;
+  display: none;
+}
+
+/* ========== Animations ========== */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact__container {
+  animation: slideIn 0.6s ease-out;
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 768px) {
+  .contact__container {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact__info {
+    padding: var(--contact-spacing-md);
+  }
+  
+  .contact__form {
+    padding: var(--contact-spacing-md);
+  }
+  
+  .contact__title {
+    font-size: 2rem;
+  }
+}
+
+/* ========== Loading State ========== */
+.form__button.loading {
+  position: relative;
+  color: transparent;
+}
+
+.form__button.loading::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -10px;
+  border: 2px solid white;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
